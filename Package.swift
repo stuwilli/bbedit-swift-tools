@@ -11,7 +11,8 @@ let package = Package(
             .executable(name: "base64-enc", targets: ["base64-enc"]),
             .executable(name: "base64-dec", targets: ["base64-dec"]),
             .executable(name: "tidy", targets: ["tidy"]),
-            .executable(name: "url-explode", targets: ["url-explode"])
+            .executable(name: "url-explode", targets: ["url-explode"]),
+            .executable(name: "url-json-unescape", targets: ["url-json-unescape"])
         ],
         targets: [
             // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -40,6 +41,10 @@ let package = Package(
                     name: "url-explode",
                     dependencies: ["bbedit-swift-tools"],
                     path: "Sources/url-explode"),
+            .executableTarget(
+                    name: "url-json-unescape",
+                    dependencies: ["bbedit-swift-tools"],
+                    path: "Sources/url-json-unescape"),
             .target(name: "bbedit-swift-tools", path: "Sources/common")
         ]
 

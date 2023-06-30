@@ -1,4 +1,4 @@
-TEXT_FILTER_EXECUTABLES := url-enc url-dec base64-enc base64-dec tidy url-explode
+TEXT_FILTER_EXECUTABLES := url-enc url-dec base64-enc base64-dec tidy url-explode url-json-unescape
 TEXT_FILTER_INSTALL_DIR := ~/Library/Mobile\ Documents/iCloud\~com\~barebones\~bbedit/Documents/Application\ Support/Text\ Filters
 
 .PHONY: clean build install
