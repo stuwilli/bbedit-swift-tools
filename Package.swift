@@ -4,6 +4,9 @@ import PackageDescription
 
 let package = Package(
         name: "bbedit-swift-tools",
+        platforms: [
+            .macOS("12.0"),
+        ],
         products: [
             .library(name:"bbedit-swift-tools", targets: ["bbedit-swift-tools"]),
             .executable(name: "url-enc", targets: ["url-enc"]),
@@ -12,7 +15,11 @@ let package = Package(
             .executable(name: "base64-dec", targets: ["base64-dec"]),
             .executable(name: "tidy", targets: ["tidy"]),
             .executable(name: "url-explode", targets: ["url-explode"]),
-            .executable(name: "url-json-unescape", targets: ["url-json-unescape"])
+            .executable(name: "url-json-unescape", targets: ["url-json-unescape"]),
+            .executable(name: "tabulate", targets: ["tabulate"])
+        ],
+        dependencies: [
+            .package(url: "https://github.com/swiftcsv/SwiftCSV.git", from: "0.8.0")
         ],
         targets: [
             // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -45,6 +52,10 @@ let package = Package(
                     name: "url-json-unescape",
                     dependencies: ["bbedit-swift-tools"],
                     path: "Sources/url-json-unescape"),
+            .executableTarget(
+                    name: "tabulate",
+                    dependencies: ["bbedit-swift-tools", "SwiftCSV"],
+                    path: "Sources/tabulate"),
             .target(name: "bbedit-swift-tools", path: "Sources/common")
         ]
 
